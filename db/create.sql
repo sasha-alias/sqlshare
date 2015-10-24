@@ -35,7 +35,6 @@ BEGIN
 END;
 $$
 LANGUAGE plpgsql SECURITY DEFINER;
-DROP FUNCTION IF EXISTS sqlshare.get_doc(TEXT);
 
 ---
 
