@@ -1,0 +1,9 @@
+.omitted-message{
+    color: rgb(147, 15, 128);
+}
+
+/* sqldoc csv render*/
+.csv-separator{
+    color: rgb(84, 149, 213);
+    font-weight: bold;
+}

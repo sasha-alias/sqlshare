@@ -1,0 +1,96 @@
+
+.output-console {
+    display: block;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    padding-bottom: 40px;
+    padding-top: 5px;
+}
+
+.connection-error{
+    font-family: monospace;
+    white-space: pre-line;
+}
+
+.query-error{
+    font-family: monospace;
+    white-space: pre;
+}
+
+.table-resultset {
+    width: auto;
+}
+
+.duration-div {
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+.duration-table{
+    width: 100%;
+    text-align: right;
+}
+
+.duration-table tr td:first-child{
+    text-align: left;
+}
+
+.rows-count-div{
+    margin-left: 10px;
+}
+
+.c3-legend-item{
+    font-size: inherit;
+}
+
+.c3 svg {
+    font-size: inherit;
+}
+
+.alert{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.object-info-div{
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.object-info-name{
+    font-weight: bold;
+}
+
+.object-info-columns-table td{
+    padding-left: 10px;
+    padding-right: 30px;
+}
+
+.object-info-columns-table th{
+    padding-left: 10px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.markdown-block{
+    padding-left: 10px;
+}
+
+/* sqldoc csv render*/
+.csv-div {
+    margin-left: 10px;
+    white-space: nowrap;
+}
+.csv-fields-div {
+    margin-left: 10px;
+    white-space: nowrap;
+}
+.csv-field {
+    font-weight: bold;
+}
+.csv-separator{
+    margin-left: 3px;
+    margin-right: 3px;
+}

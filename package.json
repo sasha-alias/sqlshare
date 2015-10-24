@@ -1,0 +1,24 @@
+{
+  "name": "sqlshare",
+  "version": "0.1.0",
+  "engines": {
+    "node": "0.12.x"
+  },
+  "dependencies": {
+    "body-parser": "^1.13.2",
+    "express": "4.12.*",
+    "jquery": "^2.1.4",
+    "markup-js": "^1.5.21",
+    "pg": "^4.4.0",
+    "react": "^0.13.3",
+    "sqldoc": "^0.2.1"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node_modules/.bin/mocha"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.3",
+    "request": "^2.65.0"
+  }
+}
