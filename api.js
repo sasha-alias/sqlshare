@@ -17,7 +17,7 @@ var InternalError = function (err, response){
 
 var RunQuery = function(response, query, params, callback){
 
-    pg.connect(process.env.SQLTABS_DATABASE_URL, function(err, client, done) {
+    pg.connect(process.env.SQLSHARE_DB, function(err, client, done) {
         if (err) {
             return InternalError(err, response);
         }
@@ -39,7 +39,7 @@ var RunQuery = function(response, query, params, callback){
  * Error: JSON with error status and message
  */
 api.share = function(req, response){
-    pg.connect(process.env.SQLTABS_DATABASE_URL, function(err, client, done) {
+    pg.connect(process.env.SQLSHARE_DB, function(err, client, done) {
         if (err) {
             return InternalError(err, response);
         }
@@ -54,8 +54,8 @@ api.share = function(req, response){
     });
 }
 
-var _doc_template = fs.readFileSync('html/document.html', {encoding: 'utf8'});
-var _404_template = fs.readFileSync('html/document-404.html', {encoding: 'utf8'});
+var _doc_template = fs.readFileSync(__dirname+'/html/document.html', {encoding: 'utf8'});
+var _404_template = fs.readFileSync(__dirname+'/html/document-404.html', {encoding: 'utf8'});
 
 api.render = function(req, response){
     RunQuery(response, 'SELECT o_guid docid, o_doc doc, o_created created FROM sqlshare.get_doc($1)', [req.params.docid], function(result){

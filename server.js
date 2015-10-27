@@ -2,7 +2,9 @@ var express = require('express');
 var bodyParser = require('body-parser')
 var api = require('./api');
 var path = require('path');
-var port = process.env.SQLTABS_SHARING_SERVER_PORT || 8080;
+var port = process.env.SQLSHARE_PORT || 8080;
+
+
 
 var app = express();
 app.use(bodyParser.json({strict: false, limit: '1mb'}));
