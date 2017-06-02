@@ -54,7 +54,7 @@
                 var echo = false;
             }
 
-            $.getJSON('api/1.0/json/'+doc_id, function(data){
+            $.getJSON('/api/1.0/json/'+doc_id, function(data){
                 var sqldoc = React.createElement(SqlDoc, {data: data, buttonBar: false, showQuery: echo, eventKey: 0});
 
                 ReactDOM.render(sqldoc, document.getElementById("root"));
