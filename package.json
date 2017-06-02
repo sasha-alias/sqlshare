@@ -22,7 +22,8 @@
   },
   "scripts": {
     "start": "node server.js",
-    "build:watch": "./node_modules/babel-cli/bin/babel.js --plugins transform-react-jsx --out-dir=build src --watch"
+    "build:watch": "./node_modules/babel-cli/bin/babel.js --plugins transform-react-jsx --out-dir=build src --watch",
+    "postinstall": "./node_modules/babel-cli/bin/babel.js --plugins transform-react-jsx --out-dir=build src"
   },
   "devDependencies": {
     "mocha": "^2.3.3",
