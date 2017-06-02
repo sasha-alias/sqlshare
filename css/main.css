@@ -1,0 +1,29 @@
+
+.header{
+    font-size: medium;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.header img{
+    margin-right: 20px;
+    margin-left: 30px;
+}
+
+.logo{
+    height: 40px;
+    width: 40px;
+}
+
+.footer {
+    font-size: x-small;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    border-top-style: solid;
+    border-top-width: thin;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
