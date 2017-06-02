@@ -4,26 +4,65 @@
     <title>SQL Share - shared document</title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 
-    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/bower_components/c3/c3.min.css" >
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/c3.min.css" >
     <link rel="stylesheet" href="/css/bootstrap.bright.css" id="theme_stylesheet">
     <link rel="stylesheet" href="/css/doc.css" id="tabs_stylesheet">
     <link rel="stylesheet" href="/css/doc.bright.css" id="theme_tabs_stylesheet">
 
-    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="/bower_components/d3/d3.min.js" charset="utf-8"></script>
-    <script src="/bower_components/c3/c3.min.js"></script>
-    <script src="/js/mount_charts.js"></script>
-    <script src="/js/open_external.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/react.js"></script>
+    <script src="/js/react-dom.js"></script>
+    <script src="/js/SqlDoc.js"></script>
+    <script src="/js/pgplan.js"></script>
+    <script src="/js/datatypes.js"></script>
+    <script src="/js/d3.js"></script>
+    <script src="/js/marked.min.js"></script>
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/d3.min.js" charset="utf-8"></script>
+    <script src="/js/c3.min.js"></script>
 
   </head>
   <body class="shared-document">
-    <div class="document-content">
-        {{doc}}
+
+    <div class="container-fluid">
+    <div class="header row">
+            <div class="row document-toolbar">
+                <div class="product-name"><a href="/" class="nounderline">
+                    <a target="_blank" href="/"><img class="logo" src="/img/logo.png"/> SQL Share </a>
+                </div>
+                <div class="toolbar-item"><a class="toolbar-link" href="?echo=false">hide query</a></div>
+                <div class="toolbar-item"><a class="toolbar-link" href="?echo=true">show query</a></div>
+            </div>
     </div>
+    </div>
+
+    <div class="document-content" id="root">{{doc}}</div>
+
     <div class="document-footer">
-        SQL document, created on {{created}}<br/>
-        <a href="www.sqltabs.com">SQL Tabs</a>
+        <p>
+            Created with <a href="https://www.sqltabs.com">SQL Tabs</a> on {{created}}
+        </p>
+        <script>
+
+            var loc = window.location.pathname.split('/');
+            var doc_id = loc[loc.length - 1];
+            if (window.location.search.indexOf("echo=true") > -1){
+                var echo = true;
+            } else {
+                var echo = false;
+            }
+
+            console.log(doc_id);
+
+            $.getJSON('http://localhost:8080/api/1.0/json/'+doc_id, function(data){
+                var sqldoc = React.createElement(SqlDoc, {data: data, buttonBar: false, showQuery: echo, eventKey: 0});
+
+                ReactDOM.render(sqldoc, document.getElementById("root"));
+                console.log(sqldoc);
+            });
+        </script>
     </div>
   </body>
 </html>

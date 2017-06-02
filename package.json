@@ -5,17 +5,24 @@
     "node": "0.12.x"
   },
   "dependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
     "body-parser": "^1.13.2",
+    "bootstrap": "^3.3.7",
+    "c3": "^0.4.12",
+    "d3": "^3.5.17",
     "express": "4.12.*",
-    "jquery": "^2.1.4",
+    "jquery": "^2.2.4",
+    "marked": "^0.3.6",
     "markup-js": "^1.5.21",
     "pg": "^4.4.0",
-    "react": "^0.13.3",
-    "sqldoc": "^0.2.1"
+    "react": "^0.14.9",
+    "react-dom": "^0.14.9",
+    "sqldoc": "^0.9.1"
   },
   "scripts": {
     "start": "node server.js",
-    "test": "node_modules/.bin/mocha"
+    "build:watch": "./node_modules/babel-cli/bin/babel.js --plugins transform-react-jsx --out-dir=build src --watch"
   },
   "devDependencies": {
     "mocha": "^2.3.3",

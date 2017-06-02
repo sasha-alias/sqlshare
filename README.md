@@ -15,3 +15,7 @@ npm start
 ```
 
 
+### Using Docker
+
+docker pull postgres
+

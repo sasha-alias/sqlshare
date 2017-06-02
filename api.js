@@ -2,6 +2,7 @@ var pg = require('pg');
 var fs = require('fs');
 var Mark = require("markup-js");
 var React = require("react");
+var ReactDOMServer = require('react-dom/server');
 var SqlDoc = require("sqldoc");
 
 
@@ -63,26 +64,38 @@ api.render = function(req, response){
         if (result.rows[0].docid == null){
             var doc_html = _404_template;
         } else {
+
+            if (req.query.hasOwnProperty('echo') && req.query.echo == 'true'){
+                var echo = true;
+            } else {
+                var echo = false;
+            }
             var doc_data = result.rows[0].doc;
             var created = result.rows[0].created;
-            var sqldoc = React.createElement(SqlDoc, {data: doc_data, buttonBar: false, eventKey: 0});
-            var sqldoc_html = React.renderToStaticMarkup(sqldoc);
+            var sqldoc = React.createElement(SqlDoc, {data: doc_data, buttonBar: false, showQuery: echo, eventKey: 0});
+            var sqldoc_html = ReactDOMServer.renderToString(sqldoc);
             doc = {
                 doc: sqldoc_html,
                 created: created,
             }
             var doc_html = Mark.up(_doc_template, doc);
         }
-        
+
         return response.send(doc_html);
-        
+
+    });
+}
+
+api.jsonDoc = function(req, response){
+    RunQuery(response, 'SELECT o_guid docid, o_doc doc, o_created created FROM sqlshare.get_doc($1)', [req.params.docid], function(result){
+        response.json(result.rows[0].doc);
     });
 }
 
 api.list = function(req, response){
     response.send('OK');
     //RunQuery(response, 'SELECT o_guid docid, o_doc doc FROM sqlshare.get_doc($1)', [req.params.docid], function(result){
-    //    
+    //
     //});
 }
 
