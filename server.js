@@ -2,7 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser')
 var api = require('./api');
 var path = require('path');
-var port = process.env.SQLSHARE_PORT || 8080;
+var port = process.env.PORT || 8080;
 
 
 
