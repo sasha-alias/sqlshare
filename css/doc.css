@@ -212,3 +212,34 @@ font: 12px sans-serif;
 }
 
 /* ------- */
+
+/* table column */
+.table-column-header{
+    cursor: pointer;
+    white-space: nowrap;
+    vertical-align: top !important;
+}
+
+.table-column-header-info{
+    margin-left: 5px;
+    margin-right: 2px;
+}
+
+.table-column-sorted-asc:after{
+    content: "\e094";
+    font-family: 'Glyphicons Halflings';
+}
+
+.table-column-sorted-desc:after{
+    content: "\e093";
+    font-family: 'Glyphicons Halflings';
+}
+
+.table-column-sorted-none:after{
+    padding-left: 1.8em;
+}
+
+.table-column-header-datatype{
+    font-size: 0.6em;
+}
+/* ------- */
