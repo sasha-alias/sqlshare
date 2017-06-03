@@ -18,7 +18,7 @@
     "pg": "^4.4.0",
     "react": "^0.14.9",
     "react-dom": "^0.14.9",
-    "sqldoc": "^0.9.4"
+    "sqldoc": "^0.9.5"
   },
   "scripts": {
     "start": "node server.js",
